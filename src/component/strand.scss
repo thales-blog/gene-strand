@@ -1,0 +1,32 @@
+.camera {
+  margin: 100px auto;
+  perspective: 300px;
+  perspective-origin: center center;
+  background-color: aqua;
+  width: 20rem;
+  height: 20rem;
+}
+.gene {
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  animation: motion 2s linear infinite;
+  .strand {
+    background-color: #f00;
+    border: #ff0 solid thin;
+    width: 10rem;
+    height: 1rem;
+    transform-origin: center center;
+    position: absolute;
+  }
+}
+@keyframes motion{
+  from {transform: rotateY(0)}
+  to {transform: rotateY(360deg)}
+}
+@for $i from 1 through 10 {
+  .strand:nth-child(#{$i}) {
+    transform:
+      rotateY(10deg * $i )
+      translateY(30px * $i);
+  }
+}
